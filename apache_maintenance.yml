@@ -1,0 +1,5 @@
+---
+- name: Apache Maintenance Mode
+  hosts: obs
+  roles:
+    - set_apache_maintenance_mode

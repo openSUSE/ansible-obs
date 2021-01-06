@@ -1,0 +1,5 @@
+#!/usr/bin/which ruby
+require 'obs_deploy'
+check_diff = ObsDeploy::CheckDiff.new(target_server: 'https://127.0.0.1:8443')
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+Process.exit check_diff.has_migration? ? 1 : 0

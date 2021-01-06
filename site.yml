@@ -1,0 +1,5 @@
+---
+- name: Deploy obs-api package
+  hosts: obs
+  roles:
+    - deploy
