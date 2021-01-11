@@ -34,11 +34,3 @@ ansible-playbook -i staging site.yml -vv
 ... do whatever you want with the VM ...
 
 Rollback the VM to the initial snapshot
-
-
-- TODO:
-
-On Production, we dont control SSL via APACHE_SERVER_FLAG. There we have STATUS
-enabled. So to set apache to maintenance mode the line is
-APACHE_SERVER_FLAG="STATUS MAINTENANCE", and to unset it
-APACHE_SERVER_FLAG="STATUS"

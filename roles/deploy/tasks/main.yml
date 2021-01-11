@@ -1,18 +1,14 @@
 ---
-  - name: Refresh zypper repos
-    zypper_repository: 
-      repo: '*'
-      runrefresh: yes
-  - name: Check if there is new version available
+  - name: There is new update available
     # We run this command locally
     # TODO the staging host to decide if we have to deal with the vm or production server
-    shell: ./new_version_available
+    shell: "./new_version_available {{ ansible_ssh_host }}"
     delegate_to: localhost
-
     register: new_version_available
     ignore_errors: False
   - name: zypper up 'obs-api'
     command: 
-      cmd: 'zypper -n update --best-effort --details obs-api'
+      cmd: zypper -n update --best-effort --details obs-api
       warn: False
     when: new_version_available is succeeded
+    notify: ensure systemd

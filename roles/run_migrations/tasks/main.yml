@@ -1,0 +1,12 @@
+---
+  - name: There is new update available2
+    # We run this command locally
+    # TODO the staging host to decide if we have to deal with the vm 
+    # or production server
+    shell: "./migration_required {{ ansible_ssh_host }}"
+    delegate_to: localhost
+    register: migration_available
+    ignore_errors: False
+  - name: Run migration
+    command: bash -lc run_in_api rails db:migrate:with_data
+    when: migration_available is succeeded

@@ -1,0 +1,11 @@
+---
+all:
+  vars:
+    ansible_python_interpreter: auto
+  hosts:
+    obs:
+      ansible_connection: ssh
+      # configured host in your ssh config
+      ansible_host: obs
+      apache_sysconfig_regex_unset: 'APACHE_SERVER_FLAGS="STATUS"' 
+      apache_sysconfig_regex_set: 'APACHE_SERVER_FLAGS="STATUS MAINTENANCE"'

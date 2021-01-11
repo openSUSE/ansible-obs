@@ -1,0 +1,6 @@
+---
+  - name: refresh repos
+    hosts: obs
+    roles:
+      - refresh_repositories
+

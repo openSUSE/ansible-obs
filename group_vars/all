@@ -1,1 +1,15 @@
 apache_sysconfig: "/etc/sysconfig/apache2"
+apache_sysconfig_regex: '^APACHE_SERVER_FLAGS='
+
+systemd_services:
+  - obs-clockwork
+  - obs-delayedjob-queue-consistency_check
+  - obs-delayedjob-queue-default
+  - obs-delayedjob-queue-issuetracking
+  - obs-delayedjob-queue-mailers
+  - obs-delayedjob-queue-project_log_rotate
+  - obs-delayedjob-queue-quick@0
+  - obs-delayedjob-queue-quick@1
+  - obs-delayedjob-queue-quick@2
+  - obs-delayedjob-queue-releasetracking
+  - obs-delayedjob-queue-staging

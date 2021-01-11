@@ -1,0 +1,13 @@
+---
+- name: check if update available
+  hosts: all
+
+  tasks:
+    - name: check if version available
+      shell: "./new_version_available {{ ansible_ssh_host }}"
+      delegate_to: localhost
+      register: new_version_available
+      ignore_errors: False
+    - name: debug new_version_available
+      debug:
+        msg: "{{new_version_available.rc}}"

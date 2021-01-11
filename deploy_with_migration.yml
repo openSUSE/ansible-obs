@@ -1,0 +1,9 @@
+---
+  - name: Deploy obs-api package
+    hosts: obs
+    roles:
+      - refresh_repositories
+      - set_apache_maintenance_mode
+      - deploy
+      - run_migrations
+      - unset_apache_maintenance_mode

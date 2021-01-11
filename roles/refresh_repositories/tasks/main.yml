@@ -1,0 +1,8 @@
+---
+  - name: Debug ssh_host
+    debug:
+      msg: "We are running on {{ ansible_ssh_host }}"
+  - name: Refresh zypper repos
+    zypper_repository: 
+      repo: '*'
+      runrefresh: yes

@@ -1,0 +1,1 @@
+require 'obs_deploy'

@@ -1,0 +1,22 @@
+- name: restart-apache2
+  service: 
+    name=apache2 state=restarted
+  tags:
+    - apache2
+
+- name: debug task
+  debug:
+    msg: "Called for {{inventory_hostname}}"
+  listen: ensure systemd
+
+- name: obs-delayed-consistency-check
+  service: state=started name="{{item}}"
+  listen: ensure systemd
+  loop: "{{systemd_services}}"
+
+- name: notify rocketchat
+  shell: "./send_rocketchat_message"
+  delegate_to: localhost
+  listen: rocket chat
+
+

@@ -2,8 +2,8 @@
   - name: Unset apache in maintenance mode
     lineinfile: >
       dest="{{ apache_sysconfig }}"
-      line='APACHE_SERVER_FLAGS=\"SSL\"'
-      regexp='^APACHE_SERVER_FLAGS='
+      line="{{ apache_sysconfig_regex_unset }}"
+      regexp="{{ apache_sysconfig_regex }}"
     notify:
       - restart-apache2
     tags:

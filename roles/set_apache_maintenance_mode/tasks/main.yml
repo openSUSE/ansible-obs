@@ -2,8 +2,8 @@
   - name: Set apache in maintenance mode
     lineinfile: >
       dest="{{ apache_sysconfig }}"
-      line='APACHE_SERVER_FLAGS=\"MAINTENANCE SSL\"'
-      regexp='^APACHE_SERVER_FLAGS='
+      line="{{ apache_sysconfig_regex_set }}"
+      regexp={{ apache_sysconfig_regex }}
     notify:
       - restart-apache2
     tags:
