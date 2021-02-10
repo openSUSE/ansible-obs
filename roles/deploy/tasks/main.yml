@@ -11,4 +11,6 @@
       cmd: zypper -n update --best-effort --details obs-api
       warn: False
     when: new_version_available is succeeded
-    notify: ensure systemd
+    notify: 
+      - ensure systemd
+      - rocket chat

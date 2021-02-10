@@ -1,10 +1,29 @@
 GEM
+  remote: https://rubygems.org/
   specs:
+    abstract_method (1.2.1)
+    cheetah (0.5.2)
+      abstract_method (~> 1.2)
+    concurrent-ruby (1.1.8)
+    dotenv (2.7.6)
+    dry-cli (0.6.0)
+      concurrent-ruby (~> 1.0)
+    mini_portile2 (2.5.0)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
+    obs_deploy (0.3.4)
+      cheetah
+      dry-cli
+      nokogiri
+    racc (1.5.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
+  obs_deploy
 
 BUNDLED WITH
-   2.1.4
+   2.2.8

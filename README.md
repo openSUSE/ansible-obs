@@ -28,9 +28,11 @@ Generate a snapshot from your VM
 Run the playbook:
 
 ```
-ansible-playbook -i staging site.yml -vv
+ansible-playbook -i staging deploy_without_migration.yml -vv
 ```
 
 ... do whatever you want with the VM ...
 
 Rollback the VM to the initial snapshot
+
+Please check our wiki for more informations
