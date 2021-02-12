@@ -1,0 +1,7 @@
+---
+  - name: Deploy obs-api package
+    hosts: obs
+    roles:
+      - refresh_repositories
+      - deploy
+      - run_migrations
