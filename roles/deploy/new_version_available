@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-require 'obs_deploy'
-
-puts "Host = #{ARGV[0]}"
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-check_diff = ObsDeploy::CheckDiff.new(target_server: 'https://127.0.0.1:8443')
-Process.exit check_diff.new_version_available? ? 0 : 1
