@@ -8,13 +8,15 @@ GEM
     dotenv (2.7.6)
     dry-cli (0.6.0)
       concurrent-ruby (~> 1.0)
+    git_diff_parser (3.2.0)
     mini_portile2 (2.5.0)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    obs_deploy (0.3.5)
+    obs_deploy (0.3.6)
       cheetah
       dry-cli
+      git_diff_parser
       nokogiri
     racc (1.5.2)
 
