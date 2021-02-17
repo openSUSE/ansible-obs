@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/vpereira/obs_deploy.git
+  revision: a9d15d65bb8647fe366d1941b313ba1118ddfa01
+  specs:
+    obs_deploy (0.3.7)
+      cheetah
+      dry-cli
+      git_diff_parser
+      nokogiri
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,11 +23,6 @@ GEM
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    obs_deploy (0.3.6)
-      cheetah
-      dry-cli
-      git_diff_parser
-      nokogiri
     racc (1.5.2)
 
 PLATFORMS
@@ -25,7 +30,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  obs_deploy
+  obs_deploy!
 
 BUNDLED WITH
    2.2.8
