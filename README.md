@@ -2,7 +2,11 @@ How to Setup the Staging environment:
 
 Install ansible locally with zypper
 
-```zypper in ansible```
+```zypper in ansible ruby```
+
+Run bundle install to install some ruby dependencies:
+
+```bundle install```
 
 Install Virtualbox (or qemu)
 
