@@ -2,6 +2,8 @@ How to Setup the Staging environment:
 
 Install ansible locally with zypper
 
+```zypper in ansible```
+
 Install Virtualbox (or qemu)
 
 Setup the Virtual Machine using an image from http://download.opensuse.org/repositories/OBS:/Server:/Unstable/images/
@@ -18,17 +20,17 @@ Set ssh authentication using key
 Test ansible:
 
 ```
-ansible obs -i staging -a "hostnamectl"
+ansible obs -i inventory/staging.yml -a "hostnamectl"
 ```
 
-The command should be sent via ssh to your VM.
+The command will be sent via ssh to your VM.
 
 Generate a snapshot from your VM
 
 Run the playbook:
 
 ```
-ansible-playbook -i staging deploy_without_migration.yml -vv
+ansible-playbook -i inventory/staging.yml deploy_without_migration.yml -vv
 ```
 
 ... do whatever you want with the VM ...
