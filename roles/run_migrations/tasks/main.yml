@@ -8,8 +8,8 @@
     register: migration_available
     ignore_errors: False
   - name: Run migrations
-    command: bash -lc run_in_api rails db:migrate
+    shell: source /root/.bashrc && run_in_api rails db:migrate
     when: migration_available is succeeded
   - name: Run data migrations
-    command: bash -lc run_in_api rails db:migrate:with_data
+    shell: source /root/.bashrc && run_in_api rails db:migrate:with_data
     when: migration_available is succeeded
