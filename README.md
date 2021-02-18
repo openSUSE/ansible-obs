@@ -27,6 +27,24 @@ The command will be sent via ssh to your VM.
 
 Generate a snapshot from your VM
 
+Add the following to your `.bashrc`
+
+```
+export RAILS_ENV=production
+
+API_ROOT=/srv/www/obs/api
+
+function run_in_api
+{
+  # startproc only works for classical daemons
+  chroot --userspec=wwwrun:www / /bin/bash -c "export HOME=/var/lib/wwwrun; cd $API_ROOT && /usr/bin/bundle.ruby2.5 exec $*"
+}
+
+```
+
+Try to run `run_in_api rails c` on the VM and it should work
+
+
 Run the playbook:
 
 ```
