@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'json'
+if ARGV[0] == "-f" 
+    puts  "#{{ status: "blocked", reason: "Blocked because PR#31337" }.to_json}"
+    exit(1)
+else
+    puts "#{{ status: "ready", reason: "" }.to_json}"
+    exit(0)
+end

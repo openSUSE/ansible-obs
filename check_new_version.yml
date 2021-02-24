@@ -8,6 +8,26 @@
       delegate_to: localhost
       register: new_version_available
       ignore_errors: False
+    - name: check if migration is pending
+      shell: "./migration_required {{ ansible_ssh_host }}"
+      delegate_to: localhost
+      register: migration_required
+      ignore_errors: False
+    - name: check if deployment is being blocked
+      shell: "./ogd -f"
+      delegate_to: localhost
+      register: deployment_blocked
+      # if we set the ignore_erros to False it will quit already here
+      ignore_errors: True
     - name: debug new_version_available
       debug:
         msg: "{{new_version_available.rc}}"
+    - name: debug migration_required
+      debug:
+        msg: "{{new_version_available.rc}}"
+    - name: debug deployment_blocked
+      debug:
+        msg: "{{new_version_available.rc}}"
+    - name: fail if deployment is blocked
+      fail: msg={{(deployment_blocked.stdout | from_json)}}}
+      when: deployment_blocked is failed
