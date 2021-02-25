@@ -5,16 +5,22 @@
   tasks:
     - name: check if version available
       shell: "./new_version_available {{ ansible_ssh_host }}"
+      args:
+        chdir: utilities
       delegate_to: localhost
       register: new_version_available
       ignore_errors: False
     - name: check if migration is pending
       shell: "./migration_required {{ ansible_ssh_host }}"
+      args:
+        chdir: utilities
       delegate_to: localhost
       register: migration_required
-      ignore_errors: False
+      ignore_errors: True
     - name: check if deployment is being blocked
       shell: "./ogd -f"
+      args:
+        chdir: utilities
       delegate_to: localhost
       register: deployment_blocked
       # if we set the ignore_erros to False it will quit already here

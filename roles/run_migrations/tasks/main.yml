@@ -4,6 +4,8 @@
     # TODO the staging host to decide if we have to deal with the vm 
     # or production server
     shell: "./migration_required {{ ansible_ssh_host }}"
+    args:
+      chdir: utilities
     delegate_to: localhost
     register: migration_available
     ignore_errors: False

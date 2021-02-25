@@ -3,6 +3,8 @@
     # We run this command locally
     # TODO the staging host to decide if we have to deal with the vm or production server
     shell: "./new_version_available {{ ansible_ssh_host }}"
+    args:
+      chdir: utilities
     delegate_to: localhost
     register: new_version_available
     ignore_errors: False

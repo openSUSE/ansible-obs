@@ -16,6 +16,8 @@
 
 - name: notify rocketchat
   shell: "./send_rocketchat_message {{ ansible_ssh_host }}"
+  args:
+    chdir: utilities
   delegate_to: localhost
   listen: rocket chat
 
