@@ -9,4 +9,6 @@ if host == "127.0.0.1"
     checkdiff_params[:target_server] = "https://#{host}:8443"
 end
 check_diff = ObsDeploy::CheckDiff.new(checkdiff_params)
-Process.exit check_diff.has_migration? ? 1 : 0
+# 0 => no migration
+# 1 => Pending migration
+exit check_diff.has_migration? ? 1 : 0

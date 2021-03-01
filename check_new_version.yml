@@ -19,7 +19,7 @@
         chdir: utilities
       delegate_to: localhost
       register: migration_required
-      ignore_errors: True
+      ignore_errors: False
     - name: check if deployment is being blocked
       shell: "dotenv utilities/ogd -f"
       delegate_to: localhost
@@ -31,10 +31,13 @@
         msg: "{{new_version_available.rc}}"
     - name: debug migration_required
       debug:
-        msg: "{{new_version_available.rc}}"
+        msg: "{{migration_required.rc}}"
     - name: debug deployment_blocked
       debug:
-        msg: "{{new_version_available.rc}}"
+        msg: "{{deployment_blocked.rc}}"
+    - name: fail if migration is pending
+      fail: msg="Just fail dude"
+      when: migration_required.rc == 1
     - name: fail if deployment is blocked
       fail: msg={{(deployment_blocked.stdout | from_json)}}}
       when: deployment_blocked is failed

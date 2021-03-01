@@ -8,11 +8,19 @@
     delegate_to: localhost
     register: new_version_available
     ignore_errors: False
+  - name: There is pending migration
+    shell: "./migration_required {{ ansible_ssh_host }}"
+    args:
+      chdir: utilities
+    delegate_to: localhost
+    register: no_migration_available
+    ignore_errors: False
+
   - name: zypper up 'obs-api'
     command: 
       cmd: zypper -n update --best-effort --details obs-api
       warn: False
-    when: new_version_available is succeeded
+    when: new_version_available.rc == 0 and no_migration_available.rc == 0
     notify: 
       - ensure systemd
       - rocket chat

@@ -9,4 +9,6 @@ if host == "127.0.0.1"
     checkdiff_params[target_server] = "https://#{host}:8443"
 end
 check_diff = ObsDeploy::CheckDiff.new(checkdiff_params)
-Process.exit check_diff.new_version_available? ? 0 : 1
+# 0 => new package available to deploy
+# 1 => no package available to deploy
+exit check_diff.new_version_available? ? 0 : 1

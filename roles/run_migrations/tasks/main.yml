@@ -11,7 +11,7 @@
     ignore_errors: False
   - name: Run migrations
     shell: source /root/.bashrc && run_in_api rails db:migrate
-    when: migration_available is succeeded
+    when: migration_available.rc == 1
   - name: Run data migrations
     shell: source /root/.bashrc && run_in_api rails db:migrate:with_data
-    when: migration_available is succeeded
+    when: migration_available.rc == 1
