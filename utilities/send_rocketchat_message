@@ -13,8 +13,6 @@ end
 host = ARGV[0]
 checkdiff_params = {}
 
-skip_chat_notification = true
-
 Dotenv.load
 
 exit 1 if ENV['ROCKET_CHAT_URL'].nil?
@@ -32,6 +30,7 @@ obs_commit = check_diff.obs_running_commit
 current_user = ENV['USER']
 
 request = Net::HTTP::Post.new(uri)
+
 request.content_type = "application/json"
 
 request.body = JSON.dump({
@@ -48,7 +47,9 @@ req_options = {
   use_ssl: uri.scheme == "https",
 }
 
+
 response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
 end
 
+puts response.inspect
