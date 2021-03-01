@@ -10,7 +10,7 @@ Run bundle install to install some ruby dependencies:
 
 Install Virtualbox (or qemu)
 
-Setup the Virtual Machine using an image from http://download.opensuse.org/repositories/OBS:/Server:/Unstable/images/
+Setup the Virtual Machine using an image from http://download.opensuse.org/repositories/OBS:/Server:/Unstable/images/. Set at least 3072 MB RAM, to be able to `zypper up obs-api` without any issue.
 
 Enable/start ssh on the virtual machine
 
