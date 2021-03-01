@@ -6,7 +6,7 @@ checkdiff_params = {}
 
 if host == "127.0.0.1"
     OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-    checkdiff_params[target_server] = "https://#{host}:8443"
+    checkdiff_params[:target_server] = "https://#{host}:8443"
 end
 check_diff = ObsDeploy::CheckDiff.new(checkdiff_params)
 Process.exit check_diff.has_migration? ? 1 : 0
