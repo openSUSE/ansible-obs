@@ -3,6 +3,9 @@
   hosts: all
 
   tasks:
+    - name: Read .env in the right path
+      shell: "dotenv utilities/send_rocketchat_message {{ ansible_ssh_host }}"
+      delegate_to: localhost
     - name: check if version available
       shell: "./new_version_available {{ ansible_ssh_host }}"
       args:
@@ -18,9 +21,7 @@
       register: migration_required
       ignore_errors: True
     - name: check if deployment is being blocked
-      shell: "./ogd -f"
-      args:
-        chdir: utilities
+      shell: "dotenv utilities/ogd -f"
       delegate_to: localhost
       register: deployment_blocked
       # if we set the ignore_erros to False it will quit already here
