@@ -1,0 +1,7 @@
+---
+  - name: check if deployment is being blocked
+    shell: "dotenv utilities/ogd -f"
+    register: deployment_allowed
+    delegate_to: localhost
+    ignore_errors: False
+ 

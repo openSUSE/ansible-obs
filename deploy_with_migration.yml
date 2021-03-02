@@ -1,9 +1,22 @@
 ---
   - name: Deploy obs-api package
     hosts: obs
-    roles:
-      - refresh_repositories
-      - set_apache_maintenance_mode
-      - deploy
-      - run_migrations
-      - unset_apache_maintenance_mode
+
+    pre_tasks:
+      - include_tasks: ./includes/deployment-block.yml
+
+
+    tasks:
+      - name: With Migration
+        block:
+          - include_role: 
+              name: refresh_repositories
+          - include_role: 
+              name: set_apache_maintenance_mode
+          - include_role: 
+              name: deploy
+          - include_role: 
+              name: run_migrations
+          - include_role: 
+              name: unset_apache_maintenance_mode
+        when: deployment_allowed is succeeded

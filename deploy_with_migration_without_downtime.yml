@@ -1,7 +1,17 @@
 ---
   - name: Deploy obs-api package
     hosts: obs
-    roles:
-      - refresh_repositories
-      - deploy
-      - run_migrations
+
+    pre_tasks:
+      - include_tasks: ./includes/deployment-block.yml
+
+    tasks:
+      - name: With Migration
+        block:
+          - include_role: 
+              name: refresh_repositories
+          - include_role: 
+              name: deploy
+          - include_role: 
+              name: run_migrations
+        when: deployment_allowed is succeeded
