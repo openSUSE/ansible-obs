@@ -59,4 +59,4 @@ ansible-playbook -i inventory/staging.yml deploy_without_migration.yml -vv
 
 Rollback the VM to the initial snapshot
 
-Please check our wiki for more informations
+Please check our [wiki](https://github.com/openSUSE/ansible-obs/wiki) for more informations
