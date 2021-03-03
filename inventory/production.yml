@@ -1,7 +1,5 @@
 ---
 all:
-  vars:
-    ansible_python_interpreter: auto
   hosts:
     obs:
       ansible_connection: ssh
