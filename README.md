@@ -6,7 +6,7 @@ Install ansible locally with zypper
 
 Run bundle install to install some ruby dependencies:
 
-```bundle install```
+```bundle install --binstubs```
 
 Install Virtualbox (or qemu)
 
