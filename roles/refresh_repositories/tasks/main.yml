@@ -6,3 +6,4 @@
     zypper_repository: 
       repo: '*'
       runrefresh: yes
+      auto_import_keys: yes
