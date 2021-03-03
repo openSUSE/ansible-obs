@@ -4,6 +4,7 @@
 
     pre_tasks:
       - include_tasks: ./includes/deployment-block.yml
+      - include_tasks: ./includes/zypper-unlock.yml
 
     tasks:
       - name: Without Migration
@@ -13,3 +14,6 @@
           - include_role: 
               name: deploy
         when: deployment_allowed is succeeded
+
+    post_tasks:
+      - include_tasks: ./includes/zypper-lock.yml
