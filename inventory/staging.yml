@@ -7,7 +7,7 @@ all:
       ansible_port: 2222
       # in the production inventory it should look like:
       # 'APACHE_SERVER_FLAGS=\"STATUS\"'
-      apache_sysconfig_regex_unset: 'APACHE_SERVER_FLAGS="SSL"' 
+      apache_sysconfig_regex_unset: 'APACHE_SERVER_FLAGS="SSL"'
       # in production inventory it should look like:
       # 'APACHE_SERVER_FLAGS=\"STATUS MAINTENANCE\"'
       apache_sysconfig_regex_set: 'APACHE_SERVER_FLAGS="SSL MAINTENANCE"'
