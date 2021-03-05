@@ -21,7 +21,7 @@
       register: migration_required
       ignore_errors: False
     - name: check if deployment is being blocked
-      shell: "dotenv utilities/ogd -f"
+      shell: "dotenv bin/ogd check-lock"
       delegate_to: localhost
       register: deployment_blocked
       # if we set the ignore_erros to False it will quit already here
