@@ -15,9 +15,7 @@
   loop: "{{systemd_services}}"
 
 - name: notify rocketchat
-  shell: "./send_rocketchat_message {{ ansible_ssh_host }}"
-  args:
-    chdir: utilities
+  shell: "dotenv utilities/send_rocketchat_message {{ ansible_ssh_host }}"
   delegate_to: localhost
   listen: rocket chat
 
