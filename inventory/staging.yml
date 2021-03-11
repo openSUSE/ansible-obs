@@ -11,3 +11,5 @@ all:
       # in production inventory it should look like:
       # 'APACHE_SERVER_FLAGS=\"STATUS MAINTENANCE\"'
       apache_sysconfig_regex_set: 'APACHE_SERVER_FLAGS="SSL MAINTENANCE"'
+      check_migration_command: bin/obs_deploy pm -k --targeturl https://localhost:8443
+      check_url: curl -k -f https://localhost:8443/about

@@ -19,4 +19,9 @@
   delegate_to: localhost
   listen: rocket chat
 
+- name: run curl
+  # change the url for
+  shell: "{{check_url}}"
+  delegate_to: localhost
+  listen: check_http_server_running
 

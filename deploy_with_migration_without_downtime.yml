@@ -15,7 +15,7 @@
               name: deploy
           - include_role: 
               name: run_migrations
-        when: deployment_allowed is succeeded
+        when: deployment_allowed.rc > 0
 
     post_tasks:
       - include_tasks: ./includes/zypper-lock.yml

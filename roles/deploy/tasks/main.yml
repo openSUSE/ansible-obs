@@ -9,9 +9,7 @@
     register: new_version_available
     ignore_errors: False
   - name: There is pending migration
-    shell: "./migration_required {{ ansible_ssh_host }}"
-    args:
-      chdir: utilities
+    shell: "{{ check_migration_command }}"
     delegate_to: localhost
     register: no_migration_available
     ignore_errors: False
@@ -24,3 +22,4 @@
     notify: 
       - ensure systemd
       - rocket chat
+      - check_http_server_running

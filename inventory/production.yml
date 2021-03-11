@@ -7,3 +7,5 @@ all:
       ansible_host: obs
       apache_sysconfig_regex_unset: 'APACHE_SERVER_FLAGS="STATUS"'
       apache_sysconfig_regex_set: 'APACHE_SERVER_FLAGS="STATUS MAINTENANCE"'
+      check_migration_command: bin/obs_deploy pm
+      check_url: curl -f https://build.opensuse.org

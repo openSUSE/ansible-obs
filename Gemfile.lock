@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/openSUSE/obs_github_deployments.git
-  revision: bce55230e102b6eb0f1987b27c2d3415feb9ee22
+  revision: fd0163c654f09b7929fbd84b7aedb225b36a86db
   specs:
     obs_github_deployments (0.1.0)
       activesupport
@@ -10,9 +10,9 @@ GIT
 
 GIT
   remote: https://github.com/vpereira/obs_deploy.git
-  revision: eed130a3db771a8c89c773a7a7f68ec1a8a86375
+  revision: e756e61b2835ae025be7f8022e990742b4349364
   specs:
-    obs_deploy (0.3.9)
+    obs_deploy (0.4.0)
       cheetah
       dry-cli
       git_diff_parser
