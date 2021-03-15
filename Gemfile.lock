@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/openSUSE/obs_github_deployments.git
-  revision: fd0163c654f09b7929fbd84b7aedb225b36a86db
+  revision: 9310aaf4032695e857dc20b6925947ef960c6074
   specs:
     obs_github_deployments (0.1.0)
       activesupport
@@ -47,7 +47,7 @@ GEM
     mini_portile2 (2.5.0)
     minitest (5.14.4)
     multipart-post (2.1.1)
-    nokogiri (1.11.1)
+    nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     octokit (4.20.0)
