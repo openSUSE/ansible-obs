@@ -23,3 +23,4 @@
 
     post_tasks:
       - include_tasks: ./includes/zypper-lock.yml
+      - include_tasks: ./includes/github-deployment.yml

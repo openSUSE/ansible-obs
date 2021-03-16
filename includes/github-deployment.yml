@@ -1,0 +1,10 @@
+---
+  - name: get obs deployed version
+    shell: bin/obs_deploy dv | cut -f2 -d':' | xargs
+    register: obs_running_version
+    delegate_to: localhost
+
+  - name: update github deployment
+    shell: "dotenv bin/ogd succeed --ref={{obs_running_version.stdout}}"
+    delegate_to: localhost
+    when: obs_running_version is succeeded
