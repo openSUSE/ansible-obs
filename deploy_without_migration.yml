@@ -3,8 +3,12 @@
     hosts: obs
 
     pre_tasks:
+      - include_tasks: ./includes/pending-migration.yml
       - include_tasks: ./includes/deployment-block.yml
-      - include_tasks: ./includes/zypper-unlock.yml
+      - name: zypper unlock
+        block:
+          - include_tasks: ./includes/zypper-unlock.yml
+        when: deployment_allowed is succeeded and no_pending_migration is succeeded
 
     tasks:
       - name: Without Migration
@@ -13,8 +17,11 @@
               name: refresh_repositories
           - include_role: 
               name: deploy
-        when: deployment_allowed is succeeded
+        when: deployment_allowed is succeeded and no_pending_migration is succeeded
 
     post_tasks:
-      - include_tasks: ./includes/zypper-lock.yml
-      - include_tasks: ./includes/github-deployment.yml
+      - name: post tasks
+        block:
+          - include_tasks: ./includes/zypper-lock.yml
+          - include_tasks: ./includes/github-deployment.yml
+        when: deployment_allowed is succeeded and no_pending_migration is succeeded

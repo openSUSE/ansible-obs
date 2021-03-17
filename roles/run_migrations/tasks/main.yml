@@ -3,15 +3,13 @@
     # We run this command locally
     # TODO the staging host to decide if we have to deal with the vm 
     # or production server
-    shell: "./migration_required {{ ansible_ssh_host }}"
-    args:
-      chdir: utilities
+    shell: "{{ check_migration_command }}"
     delegate_to: localhost
     register: migration_available
     ignore_errors: False
-  - name: Run migrations
-    shell: source /root/.bashrc && run_in_api rails db:migrate
-    when: migration_available.rc == 1
-  - name: Run data migrations
-    shell: source /root/.bashrc && run_in_api rails db:migrate:with_data
+    block:
+      - name: Run migrations
+        shell: source /root/.bashrc && run_in_api rails db:migrate
+      - name: Run data migrations
+        shell: source /root/.bashrc && run_in_api rails db:migrate:with_data
     when: migration_available.rc == 1
