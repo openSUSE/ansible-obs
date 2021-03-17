@@ -5,6 +5,6 @@
     delegate_to: localhost
 
   - name: update github deployment
-    shell: "dotenv bin/ogd succeed --ref={{obs_running_version.stdout}}"
+    shell: "bin/dotenv bin/ogd succeed --ref={{obs_running_version.stdout}}"
     delegate_to: localhost
     when: obs_running_version is succeeded
