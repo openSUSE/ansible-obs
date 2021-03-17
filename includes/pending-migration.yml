@@ -1,0 +1,6 @@
+---
+  - name: check for pending migrations
+    shell: "{{ check_migration_command }}"
+    delegate_to: localhost
+    register: no_pending_migration
+    ignore_errors: true
