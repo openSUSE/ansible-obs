@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  ansible-obs:
+    environment:
+      - USER
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      args:
+        USER_NAME: ${USER}
+        
+    volumes:
+      - ~/.ssh/:/home/${USER}/.ssh:ro
+      - ${PWD}:/home/${USER}/ansible-obs

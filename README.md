@@ -1,4 +1,33 @@
-How to Setup the Staging environment:
+== How to run it in production, using Docker:
+
+First build the image with:
+
+```
+docker-compose build --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) ansible-obs
+```
+
+Then run it with:
+
+
+Inside the container, install ruby dependencies as:
+
+```
+
+  $ cd /home/$(whoami)/ansible-obs/
+
+  docker-compose run --rm -u $(whoami) ansible-obs
+
+```
+
+and now inside the `/home/$(whoami)/ansible-obs`, you should be able to run
+`bin/obs_deploy`
+
+Now if, your VPN is up and running, you are able to call: `ssh root@obs` on the
+container
+
+
+== How to Setup the Staging environment:
+
 
 Install ansible locally with zypper
 
