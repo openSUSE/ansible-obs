@@ -2,9 +2,7 @@
   - name: There is new update available
     # We run this command locally
     # TODO the staging host to decide if we have to deal with the vm or production server
-    shell: "./new_version_available {{ ansible_ssh_host }}"
-    args:
-      chdir: utilities
+    shell: "bin/dotenv utilities/new_version_available {{ ansible_ssh_host }}"
     delegate_to: localhost
     register: new_version_available
     ignore_errors: false
