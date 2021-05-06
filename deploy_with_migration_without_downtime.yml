@@ -4,7 +4,6 @@
 
 
     pre_tasks:
-      - include_tasks: ./includes/pending-migration.yml
       - include_tasks: ./includes/deployment-block.yml
       - name: zypper unlock
         block:
