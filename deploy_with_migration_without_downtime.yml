@@ -13,17 +13,17 @@
     tasks:
       - name: With Migration
         block:
-          - include_role: 
+          - include_role:
               name: refresh_repositories
-          - include_role: 
+          - include_role:
               name: deploy
-          - include_role: 
+          - include_role:
               name: run_migrations
-        when: deployment_allowed is succeeded and no_pending_migration is succeeded
+        when: deployment_allowed is succeeded and no_pending_migration is failed
 
     post_tasks:
       - name: post tasks
         block:
           - include_tasks: ./includes/zypper-lock.yml
           - include_tasks: ./includes/github-deployment.yml
-        when: deployment_allowed is succeeded and no_pending_migration is succeeded
+        when: deployment_allowed is succeeded and no_pending_migration is failed
