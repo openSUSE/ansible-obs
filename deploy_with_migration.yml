@@ -12,15 +12,15 @@
     tasks:
       - name: With Migration
         block:
-          - include_role: 
+          - include_role:
               name: refresh_repositories
-          - include_role: 
+          - include_role:
               name: set_apache_maintenance_mode
-          - include_role: 
+          - include_role:
               name: deploy
-          - include_role: 
+          - include_role:
               name: run_migrations
-          - include_role: 
+          - include_role:
               name: unset_apache_maintenance_mode
         when: deployment_allowed is succeeded and no_pending_migration is failed
 
@@ -29,4 +29,4 @@
         block:
           - include_tasks: ./includes/zypper-lock.yml
           - include_tasks: ./includes/github-deployment.yml
-        when: deployment_allowed is succeeded and no_pending_migration is succeeded
+        when: deployment_allowed is succeeded and no_pending_migration is failed
