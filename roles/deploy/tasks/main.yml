@@ -10,7 +10,7 @@
     shell: "{{ check_migration_command }}"
     delegate_to: localhost
     register: no_migration_available
-    ignore_errors: false
+    ignore_errors: true
 
   - name: zypper up 'obs-api'
     command: 
