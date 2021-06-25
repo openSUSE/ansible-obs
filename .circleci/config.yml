@@ -8,7 +8,7 @@ orbs:
   python: circleci/python@1.2
 
 workflows:
-  sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
+  linter:  # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run. 
     # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
     jobs:
@@ -34,8 +34,8 @@ jobs:
       - python/install-packages:
           pkg-manager: pip
           # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
-          # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
+          pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
       - run:
-          name: Run tests
+          name: Run linter
           # This assumes pytest is installed via the install-package step above
-          command: pytest
+          command: ansible-lint
