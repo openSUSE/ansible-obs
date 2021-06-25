@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/openSUSE/ansible-obs.svg?style=svg)](https://circleci.com/gh/openSUSE/ansible-obs)
+
 == How to run it in production, using Docker:
 
 First build the image with:
