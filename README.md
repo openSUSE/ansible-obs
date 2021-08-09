@@ -36,7 +36,7 @@ bin/obs_deploy
 
 Now if, your VPN is up and running, you are able to call `ssh root@obs` from the container.
 
-Go to the Wiki to read more about how to deploy with `ansible-obs`.
+Go to the [Wiki](https://github.com/openSUSE/open-build-service/wiki/Deployment-of-build.opensuse.org) to read more about how to deploy with `ansible-obs`.
 
 
 ## How to Setup the Staging environment
