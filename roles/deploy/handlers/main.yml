@@ -6,13 +6,13 @@
 
 - name: debug task
   debug:
-    msg: "Called for {{inventory_hostname}}"
+    msg: "Called for {{ inventory_hostname }}"
   listen: ensure systemd
 
 - name: obs-delayed-consistency-check
   service: state=started name="{{item}}"
   listen: ensure systemd
-  loop: "{{systemd_services}}"
+  loop: "{{ systemd_services }}"
 
 - name: notify rocketchat
   shell: "bin/dotenv utilities/send_rocketchat_message {{ ansible_ssh_host }}"
@@ -21,7 +21,7 @@
 
 - name: run curl
   # change the url for
-  shell: "{{check_url}}"
+  shell: "{{ check_url }}"
   delegate_to: localhost
   listen: check_http_server_running
 
