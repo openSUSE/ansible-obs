@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/openSUSE/obs_deploy.git
+  revision: 88c5a9dd1ee33e3d673541bea472beae661f0cf0
+  specs:
+    obs_deploy (0.4.0)
+      cheetah
+      dry-cli
+      git_diff_parser
+      nokogiri
+
+GIT
   remote: https://github.com/openSUSE/obs_github_deployments.git
   revision: 9310aaf4032695e857dc20b6925947ef960c6074
   specs:
@@ -7,16 +17,6 @@ GIT
       dry-cli (~> 0.6)
       octokit (~> 4.20)
       zeitwerk (~> 2.4)
-
-GIT
-  remote: https://github.com/vpereira/obs_deploy.git
-  revision: 792ce8e6b7c25772b82996a971d8821559ba45d9
-  specs:
-    obs_deploy (0.4.0)
-      cheetah
-      dry-cli
-      git_diff_parser
-      nokogiri
 
 GEM
   remote: https://rubygems.org/
@@ -51,11 +51,11 @@ GEM
     git_diff_parser (3.2.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    mini_portile2 (2.5.3)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     multipart-post (2.1.1)
-    nokogiri (1.11.7)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.12.3)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
