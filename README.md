@@ -62,7 +62,11 @@ root@localhost -p 2222` should make you ssh into your virtual machine
 
 Set a port forwarding from your host (8443) to your VM (443). Trying to open the site https://localhost:8443 should lead you to your virtual machine
 
-Set ssh authentication using key
+Set your ssh key for the authentication process. If you do not use the default key under `~/.ssh/id_rsa.pub`, you need to add it manually to your ssh-agent with:
+
+  ```
+  ssh-add ~/.ssh/my-other-key.pub
+  ```
 
 Test ansible:
 
