@@ -6,11 +6,13 @@
     delegate_to: localhost
     register: new_version_available
     ignore_errors: false
+    changed_when: false
   - name: There is pending migration
     shell: "{{ check_migration_command }}"
     delegate_to: localhost
     register: no_migration_available
     ignore_errors: true
+    changed_when: false
 
   - name: zypper up 'obs-api'
     command: 
