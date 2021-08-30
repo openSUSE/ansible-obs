@@ -1,6 +1,6 @@
 ---
   - name: get obs deployed version
-    shell: bin/obs_deploy dv | cut -f2 -d':' | xargs
+    shell: bin/obs_deploy dv | cut -f2 -d':'
     register: obs_running_version
     delegate_to: localhost
 
