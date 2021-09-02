@@ -1,4 +1,4 @@
-FROM opensuse/tumbleweed
+FROM registry.opensuse.org/opensuse/leap:15.3
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
