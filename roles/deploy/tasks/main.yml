@@ -21,5 +21,4 @@
     when: new_version_available.rc == 0 # and no_migration_available.rc == 0
     notify: 
       - ensure systemd
-      - rocket chat
       - check_http_server_running
