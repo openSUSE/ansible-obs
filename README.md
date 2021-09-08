@@ -4,31 +4,16 @@
 
 First build the image with:
 
-```
-docker-compose build --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) ansible-obs
-```
+run `make`
 
-Go to the root directory of the project:
 
-```
-$ cd <path_to_project>/ansible-obs/
-```
-
-run
+To run the container you call:
 
 ```
 docker-compose run --rm -u $(whoami) ansible-obs
 ```
 
-Then, inside the container...
-
-go to
-
-```
-$ cd /home/$(whoami)/ansible-obs
-```
-
-you should list all the `obs_deploy` commands by running
+Inside the container, you should list all the `obs_deploy` commands by running:
 
 ```
 bin/obs_deploy
