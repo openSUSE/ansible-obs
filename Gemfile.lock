@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/openSUSE/obs_github_deployments.git
-  revision: 9310aaf4032695e857dc20b6925947ef960c6074
+  revision: 1daa18bf82d5dba067eef2239cf0d2e35edfe9fb
   specs:
     obs_github_deployments (0.1.0)
       activesupport
