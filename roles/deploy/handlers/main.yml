@@ -10,7 +10,7 @@
   listen: ensure systemd
 
 - name: obs-delayed-consistency-check
-  service: state=started name="{{item}}"
+  service: state=started name="{{ item }}"
   listen: ensure systemd
   loop: "{{ systemd_services }}"
 
