@@ -5,12 +5,12 @@
     # or production server
     shell: "{{ check_migration_command }}"
     delegate_to: localhost
-    register: migration_available
+    register: no_pending_migration
     ignore_errors: False
 
   - name: run db migration
     shell: "source /root/.bashrc && run_in_api rails db:migrate"
-    when: migration_available is succeeded
+    when: no_pending_migration is failed
   - name: run data migration
     shell: "source /root/.bashrc && run_in_api rails db:migrate:with_data"
-    when: migration_available is succeeded
+    when: no_pending_migration is failed
