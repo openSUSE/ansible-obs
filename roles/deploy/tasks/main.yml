@@ -7,18 +7,12 @@
     register: new_version_available
     ignore_errors: false
     changed_when: false
-  - name: There is pending migration
-    shell: "{{ check_migration_command }}"
-    delegate_to: localhost
-    register: no_migration_available
-    ignore_errors: true
-    changed_when: false
 
   - name: zypper up 'obs-api'
     command: 
       cmd: zypper -n update --best-effort --details obs-api
       warn: false
-    when: new_version_available.rc == 0 # and no_migration_available.rc == 0
+    when: new_version_available.rc == 0
     notify: 
       - ensure systemd
       - check_http_server_running
