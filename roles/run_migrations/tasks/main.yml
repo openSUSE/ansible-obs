@@ -1,16 +1,3 @@
 ---
-  - name: There is new update available
-    # We run this command locally
-    # TODO the staging host to decide if we have to deal with the vm 
-    # or production server
-    shell: "{{ check_migration_command }}"
-    delegate_to: localhost
-    register: no_pending_migration
-    ignore_errors: False
-
-  - name: run db migration
-    shell: "source /root/.bashrc && run_in_api rails db:migrate"
-    when: no_pending_migration is failed
   - name: run data migration
     shell: "source /root/.bashrc && run_in_api rails db:migrate:with_data"
-    when: no_pending_migration is failed
