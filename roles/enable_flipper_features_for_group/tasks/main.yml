@@ -1,0 +1,3 @@
+---
+  - name: enable flipper features for group
+    shell: "source /root/.bashrc && run_in_api rails flipper:enable_features_for_group"

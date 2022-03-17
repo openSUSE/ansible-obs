@@ -21,6 +21,8 @@
           - include_role:
               name: run_migrations
           - include_role:
+              name: enable_flipper_features_for_group
+          - include_role:
               name: unset_apache_maintenance_mode
         when: deployment_allowed is succeeded and no_pending_migration is failed
 

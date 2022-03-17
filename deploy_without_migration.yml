@@ -17,6 +17,8 @@
               name: refresh_repositories
           - include_role: 
               name: deploy
+          - include_role:
+              name: enable_flipper_features_for_group
         when: deployment_allowed is succeeded and no_pending_migration is succeeded
 
     post_tasks:
