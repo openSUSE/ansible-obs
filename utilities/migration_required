@@ -2,13 +2,16 @@
 require 'obs_deploy'
 
 host = ARGV[0]
-checkdiff_params = {}
+checkdiff_params = { server: 'https://api.opensuse.org',
+                     product: '15.3',
+                     project: 'OBS:Server:Unstable',
+                     target_server: 'https://api.opensuse.org' }
 
 if host == "127.0.0.1"
     OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
     checkdiff_params[:target_server] = "https://#{host}:8443"
 end
-check_diff = ObsDeploy::CheckDiff.new(checkdiff_params)
+check_diff = ObsDeploy::CheckDiff.new(**checkdiff_params)
 # 0 => no migration
 # 1 => Pending migration
 exit check_diff.has_migration? ? 1 : 0
