@@ -1,3 +1,5 @@
 ---
   - name: unlock obs-api
     shell: zypper rl obs-api
+    args:
+      warn: false # To remove the warning `Consider using the zypper module rather than running 'zypper'`. This isn't possible since the module doesn't support unlocking packages.
