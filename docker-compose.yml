@@ -9,7 +9,6 @@ services:
       context: .
       args:
         USER_NAME: ${USER}
-        
     volumes:
       - ~/.ssh/:/home/${USER}/.ssh:ro
       - ${PWD}:/home/${USER}/ansible-obs
