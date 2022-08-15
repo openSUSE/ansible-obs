@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  ansible-obs:
+    build:
+      context: .
+      args:
+        USER_NAME: hans
+        USER_ID: 0815
+        GROUP_ID: 500

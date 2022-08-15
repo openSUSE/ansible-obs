@@ -1,4 +1,6 @@
 .env
 bin/*
+tmp/*
+docker-compose.override.yml
 vendor
 .bundle
