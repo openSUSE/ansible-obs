@@ -1,0 +1,9 @@
+# requires overwrite_local_changes (bool, dafault to false) to be set
+---
+  - name: Verify local changes
+    shell: "rpm -V obs-api"
+    changed_when: false
+    ignore_errors: false
+    become: true
+    when:
+      - not overwrite_local_changes
