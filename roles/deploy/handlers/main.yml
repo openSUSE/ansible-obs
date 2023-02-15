@@ -19,4 +19,8 @@
   shell: "{{ check_url }}"
   delegate_to: localhost
   listen: check_http_server_running
-
+  # Disable warning: `Consider using the get_url or uri module rather than running 'curl'.`
+  # `curl -f` fails fast by returning an error whenever the server responds with an HTTP error code.
+  # This isn't possible with the `get_url` and `uri` modules, so we have to use `curl` directly.
+  args:
+    warn: false
