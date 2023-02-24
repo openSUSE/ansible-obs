@@ -16,3 +16,10 @@
     notify: 
       - ensure systemd
       - check_http_server_running
+
+  - name: report deployment to influxdb
+    ansible.builtin.uri:
+      url: http://errbit2.obsmgmt.opensuse.org:48086/write?db=SystemHealthMonitoring
+      method: POST
+      body: "deploymentcount value=1i"
+      status_code: 204
