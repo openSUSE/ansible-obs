@@ -1,0 +1,6 @@
+---
+  - name: Replace servers url in API documentation
+    ansible.builtin.lineinfile:
+      path: '/srv/www/obs/api/public/apidocs-new/OBS-v2.10.50.yaml'
+      regexp: "^  - url: '/'$"
+      line: "  - url: 'https://api.opensuse.org/'"
