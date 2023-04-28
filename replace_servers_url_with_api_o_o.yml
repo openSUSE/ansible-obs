@@ -1,0 +1,5 @@
+---
+- name: Replace servers url with api.opensuse.org
+  hosts: obs
+  roles:
+    - replace_servers_url_with_api_o_o
