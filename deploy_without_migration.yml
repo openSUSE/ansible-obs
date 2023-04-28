@@ -13,12 +13,10 @@
     tasks:
       - name: Without Migration
         block:
-          - include_role:
+          - include_role: 
               name: refresh_repositories
-          - include_role:
+          - include_role: 
               name: deploy
-          - include_role:
-              name: replace_servers_url_with_api_o_o
           - include_role:
               name: enable_flipper_features_for_group
         when: deployment_allowed is succeeded and no_pending_migration is succeeded
