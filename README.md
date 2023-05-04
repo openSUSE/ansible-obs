@@ -38,7 +38,7 @@ You should need to do this only once...
     bin/obs_deploy check-diff
     ```
 
-1. Check if there is a monkey patch in the server and act accordingly
+1. Check if there is a `monkey patch` in the server and act accordingly. Check the content of `/etc/motd`.
 1. Deploy using the correct playbook, they are described below.
 
     ```shell
