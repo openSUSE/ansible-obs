@@ -3,7 +3,7 @@ require 'obs_deploy'
 
 host = ARGV[0]
 checkdiff_params = { server: 'https://api.opensuse.org',
-                     product: '15.4',
+                     product: '15.5',
                      project: 'OBS:Server:Unstable',
                      target_server: 'https://api.opensuse.org' }
 
