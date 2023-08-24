@@ -22,7 +22,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     abstract_method (1.2.1)
-    activesupport (7.0.4.3)
+    activesupport (7.0.7.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -54,10 +54,10 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     git_diff_parser (3.2.0)
-    i18n (1.12.0)
+    i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     mini_portile2 (2.8.1)
-    minitest (5.18.0)
+    minitest (5.19.0)
     multipart-post (2.1.1)
     nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
