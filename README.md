@@ -96,16 +96,19 @@ https://github.com/openSUSE/open-build-service/wiki/build.opensuse.org
 
 ## Monkey-patching
 
-As far as possible, when you find a bug, act as usual: create a Pull Request, wait for it to be reviewed, merged and then wait until the changes can be deployed.
+As far as possible, when you find a bug, act as usual: create a Pull Request, wait for it to be reviewed and merged and then wait until the changes can be deployed.
 
-In very rare cases this process might take too long. For example, when the bug is destroying data, blocking work for a large amount of users or even killing the whole application. If you need to monkey-patch something:
+If you can't wait that long (the bug is destroying data, blocking many users' work or even killing the whole application) then you might need to monkey-patch some fix:
 
 1. Block the deployment until you have a proper fix
     ```shell
     ogd lock --reason "There is a monkey patch in app/blah/blubb.rb"
     ```
+    Note: you can have ogd set up on your machine but it's also ready to be used inside the ansible-obs docker container.
+1. Change the code on production (apply the patch)
+1. Restart passenger `touch ~/api/tmp/restart.txt` to make the server run with the new code
 1. Whatever you patched, open a draft PR with it and attach the monkey patch label
-1. Point to the PR in /etc/motd on production
+1. Point to the PR in `/etc/motd` on production
     ```shell
     APPLIED MONKEY PATCHES
     ----------------------
@@ -116,5 +119,5 @@ In very rare cases this process might take too long. For example, when the bug i
     ```shell
     ogd unlock
     ```
-1. Remove things from /etc/motd on production
+1. Remove things from `/etc/motd` on production
 
