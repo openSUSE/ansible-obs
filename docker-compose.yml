@@ -8,6 +8,14 @@ services:
       context: .
       args:
         USER_NAME: ${USER}
+    privileged: true
     volumes:
       - ~/.ssh/:/home/${USER}/.ssh:ro
       - ${PWD}:/home/${USER}/ansible-obs
+      - /sys/bus/usb:/sys/bus/usb
+      - /dev/hidraw0:/dev/hidraw0
+      - /dev/hidraw1:/dev/hidraw1
+      - /dev/hidraw2:/dev/hidraw2
+      - /dev/hidraw3:/dev/hidraw3
+      - /dev/hidraw4:/dev/hidraw4
+      - /dev/hidraw5:/dev/hidraw5
