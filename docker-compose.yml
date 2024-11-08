@@ -19,3 +19,5 @@ services:
       - /dev/hidraw3:/dev/hidraw3
       - /dev/hidraw4:/dev/hidraw4
       - /dev/hidraw5:/dev/hidraw5
+      - /dev/hidraw6:/dev/hidraw6
+      - /dev/hidraw7:/dev/hidraw7
