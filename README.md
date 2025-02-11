@@ -94,6 +94,20 @@ If shit has hit the fan, see our production page in the developer wiki
 
 https://github.com/openSUSE/open-build-service/wiki/build.opensuse.org
 
+### Track Deployments by Hand
+
+If, for some reason, you couldn't use ansible-obs to deploy and had to do it manually, please track the deploy by hand, so it shows up [here](https://github.com/openSUSE/open-build-service/deployments/production). This is an example of how to do it:
+
+```shell
+bin/dotenv bin/ogd succeed --ref=<current version sha>
+```
+	
+You can get the current version sha with:
+
+```shell
+bin/obs_deploy dv | cut -f2 -d':'
+```
+
 ## Monkey-patching
 
 As far as possible, when you find a bug, act as usual: create a Pull Request, wait for it to be reviewed and merged and then wait until the changes can be deployed.
