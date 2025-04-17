@@ -2,7 +2,7 @@
   - name: Deploy obs-api package
     hosts: obs
     vars:
-      overwrite_local_changes: false
+      skip_local_rpm_check: false
 
     pre_tasks:
       - include_tasks: ./includes/pending-migration.yml
