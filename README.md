@@ -94,6 +94,17 @@ If shit has hit the fan, see our production page in the developer wiki
 
 https://github.com/openSUSE/open-build-service/wiki/build.opensuse.org
 
+### Local Files Changes
+
+If there are changes to the `obs-api` package in the reference server, ansible-obs will let you know and will stop the deployment.
+Is there a monkey-patch? Handle it first. If not, double-check with your colleagues.
+Only when you are completely sure those changes can be overwritten,
+you can run the playbook with the variable to skip the check. For example:
+
+```shell
+ansible-playbook -i inventory/production.yml deploy_without_migration.yml -e "skip_local_rpm_check=true"
+```
+
 ### Track Deployments by Hand
 
 If, for some reason, you couldn't use ansible-obs to deploy and had to do it manually, please track the deploy by hand, so it shows up [here](https://github.com/openSUSE/open-build-service/deployments/production). This is an example of how to do it:
