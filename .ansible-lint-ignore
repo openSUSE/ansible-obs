@@ -23,9 +23,7 @@ includes/deployment-block.yml yaml[truthy]
 includes/github-deployment.yml yaml[indentation]
 includes/pending-migration.yml yaml[indentation]
 includes/zypper-lock.yml yaml[indentation]
-includes/zypper-lock.yml yaml[line-length]
 includes/zypper-unlock.yml yaml[indentation]
-includes/zypper-unlock.yml yaml[line-length]
 refresh_repos.yml name[casing]
 refresh_repos.yml yaml[empty-lines]
 refresh_repos.yml yaml[indentation]
@@ -35,11 +33,11 @@ roles/deploy/handlers/main.yml name[casing]
 roles/deploy/handlers/main.yml no-changed-when
 roles/deploy/handlers/main.yml no-free-form
 roles/deploy/handlers/main.yml yaml[trailing-spaces]
-roles/deploy/tasks/main.yml args[module]
 roles/deploy/tasks/main.yml command-instead-of-shell
 roles/deploy/tasks/main.yml fqcn[action-core]
 roles/deploy/tasks/main.yml name[casing]
 roles/deploy/tasks/main.yml no-changed-when
+roles/deploy/tasks/main.yml var-naming[no-role-prefix]
 roles/deploy/tasks/main.yml yaml[indentation]
 roles/deploy/tasks/main.yml yaml[trailing-spaces]
 roles/enable_flipper_features_for_group/tasks/main.yml fqcn[action-core]
